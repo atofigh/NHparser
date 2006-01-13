@@ -61,10 +61,25 @@ NH_flush_buffer ();
 
 %%
 
-all:            tree endmarker {*(NHNode **)(root) = $1; NH_flush_buffer(); YYACCEPT;}
+all:            '(' subtree_list ')' description extension endmarker {
+                    NHNodeList *l;
+                    NHNode *r = new_NHNode(NULL, $2, $4.label, $4.branchLength,
+                                          $5, @1.first_line, @1.first_column);
+                    for (l = $2; l; l = l->next) {
+                        l->node->parent = r;
+                    }
+                    *(NHNode **)(root) = r;
+                    NH_flush_buffer();
+                    YYACCEPT;
+                }
               | /* Empty */ {*(NHNode **)(root) = NULL; NH_flush_buffer(); YYACCEPT;}
               | error {
                     NH_error(@1.first_line, @1.first_column, "Parse error.");
+                    YYABORT;
+                }
+              | '(' subtree_list endmarker {
+                    NH_error(@3.first_line, @3.first_column,
+                             "Missing right parenthesis.");
                     YYABORT;
                 }
 ;
@@ -81,7 +96,6 @@ tree:           '(' subtree_list ')' description extension {
                     }
                 }
               | leaf
-              | /* Empty */ {$$ = NULL;}
               | '(' subtree_list endmarker {
                     NH_error(@3.first_line, @3.first_column,
                              "Missing right parenthesis.");
@@ -113,6 +127,10 @@ leaf:           label extension {
                   $$ = new_NHNode(NULL, NULL, $1, $3, $4,
                                   @1.first_line, @1.first_column);
               } 
+              | extension {
+                  $$ = new_NHNode(NULL, NULL, NULL, -1, $1,
+                                  @1.first_line, @1.first_column);
+              }
 ;
 
 extension:      /* EMPTY */ {$$ = NULL;}

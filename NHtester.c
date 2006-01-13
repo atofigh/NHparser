@@ -40,7 +40,7 @@ write_tree_r (NHNode *n, FILE *out) {
     }
 
     if (n->children == NULL) {
-        fprintf(out, "%s", n->label);
+        fprintf(out, "%s", n->label ? n->label : "");
         if (n->branchLength >= 0) {
             fprintf(out, ":%g", n->branchLength);
         }
