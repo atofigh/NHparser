@@ -81,8 +81,8 @@ write_tree (NHNode *root, char *file) {
         return;
     }
     
-    if (file)
-        fclose(out);
     write_tree_r(root, out);
     fprintf(out, ";");
+    if (file)
+        fclose(out);
 }
