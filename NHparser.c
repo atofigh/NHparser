@@ -82,8 +82,10 @@ NH_destroy_tree (NHNode *root) {
     free(root->label);
     if (root->annotation) {
         free(root->annotation->str);
+        free(root->annotation);
     }
     NH_destroy_list(root->children);
+    free(root);
 
     return;
 }
