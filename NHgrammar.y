@@ -119,17 +119,9 @@ description:    /* EMPTY */ {$$.label = NULL; $$.branchLength = -1;}
               | label ':' branch_length {$$.label = $1; $$.branchLength = $3;}
 ;
 
-leaf:           label extension {
-                    $$ = new_NHNode(NULL, NULL, $1, -1, $2,
+leaf:           description extension {
+                    $$ = new_NHNode(NULL, NULL, $1.label, $1.branchLength, $2,
                                     @1.first_line, @1.first_column);
-              }
-              | label ':' branch_length extension {
-                  $$ = new_NHNode(NULL, NULL, $1, $3, $4,
-                                  @1.first_line, @1.first_column);
-              } 
-              | extension {
-                  $$ = new_NHNode(NULL, NULL, NULL, -1, $1,
-                                  @1.first_line, @1.first_column);
               }
 ;
 
@@ -140,8 +132,6 @@ extension:      /* EMPTY */ {$$ = NULL;}
 ;
 
 label:          LABEL
-              | '\'' LABEL '\'' {$$ = $2;}
-              | '"' LABEL '"' {$$ = $2;}
 ;
 
 branch_length:  FLOAT {
