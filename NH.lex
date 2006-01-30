@@ -50,6 +50,8 @@ FLOAT           [+-]?[0-9]+(\.[0-9]+)?(e[-+]?[0-9]+)?
 {QUOTED_LABEL_1}        NH_12123_lval.str = strd(yytext); return LABEL;
 {QUOTED_LABEL_2}        NH_12123_lval.str = strd(yytext); return LABEL;
 {FLOAT}                 NH_12123_lval.str = strd(yytext); return FLOAT;
+\[[^&]*\]
+\[&[^&]*\]
 \[&&([^]])*\]           {
                             NH_12123_colno -= yyleng;
                             update_colno();
