@@ -8,6 +8,7 @@
 
 extern YYLTYPE NH_12123_lloc;
 int NH_12123_colno;
+YY_BUFFER_STATE NH_12123_string_state;
 
 static void 
 update_colno ();
@@ -98,4 +99,16 @@ strd (char *str) {
 void
 NH_flush_buffer () {
     YY_FLUSH_BUFFER;
+}
+
+void
+NH_12123_read_string (const char *str)
+{
+    NH_12123_string_state = yy_scan_string(str);
+}
+
+void
+NH_12123_delete_string_buffer ()
+{
+    yy_delete_buffer(NH_12123_string_state);
 }

@@ -7,6 +7,9 @@
 NHNode *
 NH_read_tree (FILE *inFile, FILE *errorFile, const char *errorPrefix);
 
+NHNode *
+NH_read_tree_str (const char *str, FILE *errorFile, const char *errorPrefix);
+
 void
 NH_destroy_tree (NHNode *root);
 

@@ -9,6 +9,12 @@ extern FILE *NH_12123_in;
 extern int NH_12123_colno;
 extern int NH_12123_lineno;
 
+extern void
+NH_12123_read_string (const char *str);
+
+extern void
+NH_12123_delete_string_buffer ();
+
 extern int
 NH_12123_parse();
 
@@ -31,6 +37,31 @@ void
 NH_set_colno (int newColno) {
     NH_12123_colno = newColno;
 }
+
+NHNode *
+NH_read_tree_str (const char *str, FILE *errorFile, const char *errorPrefix)
+{
+    int c;
+    int oldErrno;
+    NHNode *root;
+
+    if (str == NULL) {
+        return NULL;
+    }
+
+    NH_error_set_err_file(errorFile);
+    NH_error_set_prefix(errorPrefix);
+    NH_12123_in = NULL;
+    NH_12123_read_string(str);
+
+    if (NH_12123_parse((void *) &root)) {
+        NH_12123_delete_string_buffer();
+        return NULL;
+    }
+    NH_12123_delete_string_buffer();
+    return root;
+}
+
 
 NHNode *
 NH_read_tree (FILE *inFile, FILE *errorFile, const char *errorPrefix){
