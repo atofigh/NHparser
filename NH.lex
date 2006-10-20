@@ -30,7 +30,7 @@ int fileno (FILE *);
 %option prefix = "NH_12123_" 
 %option yylineno
 
-LABEL           [[:alpha:]][[:alnum:]\-\_/+#!%&?]*
+LABEL           [[:alnum:]][[:alnum:]\-\_/+#!%&?]*
 QUOTED_LABEL_1  \"[[:print:]]*\"
 QUOTED_LABEL_2  \'[[:print:]]*\'
 FLOAT           [+-]?[0-9]+(\.[0-9]+)?(e[-+]?[0-9]+)?
