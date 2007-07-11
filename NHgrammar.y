@@ -7,6 +7,13 @@
 #include "NHerror.h"
 
 #define YYPARSE_PARAM root
+    
+    /* With YYMAXDEPTH set to 30000 we are able to parse trees with
+       9999 leaves, even if the tree is given in the shape
+       '(a1,(a2,(a3...' which is most memory intensive. Trees given in
+       the form '(((...,a3),a2),a1)' never pose a memory exhaustion
+       problem.*/
+#define YYMAXDEPTH 30000
 
 int 
 NH_12123_lex();
