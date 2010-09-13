@@ -12,4 +12,4 @@ check_PROGRAMS = NHtester
 NHtester_SOURCES = NHtester.c NHtypes.h NHparser.h
 NHtester_LDADD = libNHparser.la
 
-MOSTLYCLEANFILES = NHparser/NHgrammar.output
+MOSTLYCLEANFILES = NHgrammar.output
