@@ -2,8 +2,8 @@
 #include <assert.h>
 #include <string.h>
 #include <stdio.h>
+#include "NHgrammar-common.h"
 #include "NHgrammar.h"
-#include "NHgrammar.y.h"
 #include "NHerror.h"
 
 extern YYLTYPE NH_12123_lloc;
@@ -28,6 +28,7 @@ int fileno (FILE *);
 
 %option noyywrap
 %option prefix = "NH_12123_" 
+%option outfile = "lex.yy.c"
 %option yylineno
 
 LABEL           [[:alnum:]][[:alnum:]\-\_/+#!%&?]*

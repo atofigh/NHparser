@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
-#include "NHgrammar.h"
+#include "NHgrammar-common.h"
 #include "NHerror.h"
 
 #define YYPARSE_PARAM root
