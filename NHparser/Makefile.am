@@ -3,6 +3,7 @@
 lib_LTLIBRARIES = libNHparser.la
 libNHparser_la_SOURCES = NHgrammar.y NH.l NHerror.c NHerror.h \
 	NHgrammar-common.h NHparser.c NHparser.h NHtypes.h
+BUILT_SOURCES = NHgrammar.h
 libNHparser_la_LDFLAGS = -version-info 0:0:0
 AM_YFLAGS = -d
 
