@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
-#include "NHparser.h"
+#include <NHparser/NHparser.h>
 #include "NHerror.h"
 
 extern FILE *NH_12123_in;

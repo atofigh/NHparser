@@ -1,8 +1,8 @@
-#ifndef NHPARSER_H
-#define NHPARSER_H
+#ifndef NHPARSER_NHPARSER_H
+#define NHPARSER_NHPARSER_H
 
 #include <stdio.h>
-#include "NHtypes.h"
+#include <NHparser/NHtypes.h>
 
 NHNode *
 NH_read_tree (FILE *inFile, FILE *errorFile, const char *errorPrefix);

@@ -7,7 +7,7 @@ BUILT_SOURCES = NHgrammar.h
 libNHparser_la_LDFLAGS = -version-info 0:0:0
 AM_YFLAGS = -d
 
-include_HEADERS = NHparser.h NHtypes.h
+pkginclude_HEADERS = NHparser.h NHtypes.h
 
 check_PROGRAMS = NHtester
 NHtester_SOURCES = NHtester.c NHtypes.h NHparser.h

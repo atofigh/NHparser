@@ -1,5 +1,5 @@
-#ifndef NHTYPES_H
-#define NHTYPES_H
+#ifndef NHPARSER_NHTYPES_H
+#define NHPARSER_NHTYPES_H
 
 struct NHNodeList;
 

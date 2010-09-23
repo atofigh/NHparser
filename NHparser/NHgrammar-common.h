@@ -1,7 +1,7 @@
 #ifndef NHGRAMMAR_H
 #define NHGRAMMAR_H
 
-#include "NHtypes.h"
+#include <NHparser/NHtypes.h>
 
 typedef struct desc_t {
     double      branchLength;

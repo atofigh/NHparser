@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "NHparser.h"
+#include <NHparser/NHparser.h>
 
 static void write_tree_r (NHNode *n, FILE *out);
 static void write_tree (NHNode *root, char *file);
