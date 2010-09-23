@@ -4,6 +4,10 @@
 #include <stdio.h>
 #include <NHparser/NHtypes.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 NHNode *
 NH_read_tree (FILE *inFile, FILE *errorFile, const char *errorPrefix);
 
@@ -24,5 +28,9 @@ NH_set_lineno (int newLineno);
 
 void
 NH_set_colno (int newColno);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
