@@ -1,22 +1,81 @@
-NHparser
-********
+Copyright (c) 2010, Ali Tofigh
+See the end of the file for license conditions
+
+                                NHparser
+                                ********
 
 1. Introduction
 ===============
 
 NHparser is a C library for parsing trees in the Newick or New Hampshire
-format.
+format. NHparser was designed, written, and is being maintained by Ali
+Tofigh <alix.tofigh@gmail.com>.
 
 
 2. Installation
 ===============
 
 The NHparser package uses the GNU autotools for building and
-installation. Please see the file INSTALL for general instructions.
+installation. Please see the file INSTALL for general instructions. For
+the impatient try
+
+$ ./configure && make && make install
+
+This will install the header files and the library in standard system
+locations (e.g., /usr/include and /usr/lib). If you do not have write
+permissions to the system directories, you can install the program in a
+local directory of your choice:
+
+$ ./configure --prefix=/path/to/install/location && make && make install
+
+Also, try
+
+$ ./configure --help
+
+for more information about setting environment and compiler flags.
 
 
-3. Reporting Bugs
+3. Usage
+========
+
+The library functions and the exported data types are declared in
+NHparser.h and NHtypes.h, respectively. The most useful functions are:
+
+NHNode *
+NH_read_tree (FILE *inFile, FILE *errorFile, const char *errorPrefix);
+
+NHNode *
+NH_read_tree_str (const char *str, FILE *errorFile, const char *errorPrefix);
+
+To use the library functions in your code, simply
+
+#include <NHparser/NHparser.h>
+
+and call the appropriate function(s). The NHNode data structure is
+pretty self-explanatory and anyone familiar with the New Hampshire tree
+format should be able to understand what each field represents. Compile
+your code and link with the NHparser library (usually giving the
+-lNHparser flag).
+
+
+4. Known Issues
+===============
+
+- There is no documentation beside this README file.
+- Line and column numbers are not always reported correctly.
+- Only one tree can be read from each file. Try using NH_read_tree_str
+  if you need to process a file with multiple trees.
+
+
+5. Reporting Bugs
 =================
 
 Any suggestions, requests for enhancements, or bug reports can be sent
-directly to the author via electronic mail to <alix.tofigh@gmail.com>.
+directly to the author via electronic mail: <alix.tofigh@gmail.com>.
+
+
+6. License
+==========
+
+This software is released under the terms of the license contained in
+the file LICENSE.

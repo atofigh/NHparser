@@ -2,3 +2,4 @@
 
 AUTOMAKE_OPTIONS = check-news
 SUBDIRS = NHparser
+EXTRA_DIST = LICENSE
