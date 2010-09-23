@@ -6,7 +6,7 @@ AC_CONFIG_AUX_DIR([config])
 AC_CONFIG_MACRO_DIR([config/m4])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_CONFIG_SRCDIR([NHparser/NHparser.c])
-AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_HEADERS([NHparser/config.h])
 LT_PREREQ([2.2.6])
 LT_INIT
 AC_CANONICAL_BUILD
