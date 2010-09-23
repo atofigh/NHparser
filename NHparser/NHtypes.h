@@ -1,3 +1,13 @@
+/*
+ * Copyright (C) 2010, Ali Tofigh
+ *
+ * This file is part of NHparser, a library for parsing trees in the New
+ * Hampshire or Newick format.
+ *
+ * NHparser is released under the terms of the license contained in the
+ * file LICENSE.
+ */
+
 #ifndef NHPARSER_NHTYPES_H
 #define NHPARSER_NHTYPES_H
 
