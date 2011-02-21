@@ -8,8 +8,8 @@ release. This file should not be included in releases.
    $ make -j8
    $ [ do some tests here ]
 2. update version number in configure.ac
-3. update library number in NHparser/Makefile
-4. update the EXTRA_DIST variable in Makefile
+3. update library number in NHparser/Makefile.am
+4. update the EXTRA_DIST variable in Makefile.am
 5. update NEWS and README
 6. make sure all source files have the same license header
 7. update this RELEASE.howto
